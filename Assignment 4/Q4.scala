@@ -17,6 +17,9 @@ object Q4{
         println("Sum of All Accounts: Rs " + Totalbalance(bank))
         println()
 
+        interest(bank).foreach(i => println(i))
+        println()
+                
         println("Sum of All Accounts(After Interest): Rs " + Totalbalance(interest(bank)))
         println()
     }
@@ -25,7 +28,7 @@ object Q4{
 
     val Totalbalance = (b:List[Account]) => b.reduce((x, y) => new Account("", 0, x.balance + y.balance)).balance
 
-    val interest = (b:List[Account]) => b.map(x => if(x.balance >=0) new Account(x.nic, x.acnumber, x.balance + x.balance * 0.005) else new Account(x.nic, x.acnumber, x.balance + x.balance * 0.01))
+    val interest = (b:List[Account]) => b.map(x => if(x.balance >=0) new Account(x.nic, x.acnumber, x.balance + x.balance * 0.05) else new Account(x.nic, x.acnumber, x.balance + x.balance * 0.1))
 }
 
 class Account(id:String, n:Int, b:Double){
